@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ZeroHunger.EF.Models.Receive>
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="container p-3">
+    <h2 class="text-center">Requests:</h2>
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-striped">
+            <thead class="bg-primary">
+                <tr>
+                    <th>
+                        Request Time
+                    </th>
+
+                    <th>
+                        Status
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PlacedTime)
+                    </td>
+
+                    <td>
+                        @{
+                            if (item.Requeststatus == 0)
+                            {
+                                <span class="badge rounded-pill bg-warning text-dark">Pending</span>
+
+                            }
+
+                            else if (item.Requeststatus == 1)
+                            {
+                                <span class="badge rounded-pill bg-info text-dark">Processed</span>
+                            }
+
+                            else if (item.Requeststatus == 2)
+                            {
+                                <span class="badge rounded-pill bg-secondary text-dark">Shipped</span>
+                            }
+
+                            else if (item.Requeststatus == 3)
+                            {
+                                <span class="badge rounded-pill bg-success text-dark">Recieved</span>
+                            }
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.Requeststatus != 0)
+                        {
+                            @Html.ActionLink("View", "Details", new { id = item.ReceiveRequestId }, new { @class = "btn btn-info" })
+                        }
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <div><a href="/ReceiveRequest/MakeReceiveRequest" class="btn btn-info my-3">Request for Food</a></div>
+
+
+    }
+
+    else
+    {
+        <div class="container text-center">
+            <h1 class="text-warning">No Request Made!!!</h1>
+            <div><a href="/ReceiveRequest/MakeReceiveRequest" class="btn btn-primary my-3">Place Request</a></div>
+        </div>
+    }
+</section>
+
+
+

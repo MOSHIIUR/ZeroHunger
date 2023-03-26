@@ -1,0 +1,57 @@
+﻿@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<html>
+<head>
+    <title>Zero Hunger</title>
+</head>
+<body>
+
+    <section class="bg-dark text-light text-center text-sm-start">
+        <div class="container">
+            <div class="d-flex justify-content-center align-items-center">
+                <div>
+                    <h1>BE <span class="text-danger">THE RESCUE.</span></h1>
+                    <p class="lead my-4">
+                        Using our web-based app, we engage volunteers to transfer fresh food surpluses from local businesses
+                        to social service agencies serving the food insecure.
+
+                    </p>
+                    @Html.ActionLink("GET STARTED", "Menu", new { }, new { @class = "btn btn-primary btn-lg" })
+
+                </div>
+                <img src="~/Resources/help.png" alt="Alternate Text" />
+            </div>
+            
+        </div>
+    </section>
+
+    @*<div class="container">
+        <div class="row">
+            <div class="col">
+                <div>
+                    <p class="lead">A system that will help us to automate and track our works. We are an NGO who works for feeding deprived people and children. We have observed that, people are wasting a ton of food every day in Dhaka city (like office programs, buffets etc etc). We are on a mission to make the usage of this foods. We have contacted with some restaurants, and they agreed to give us those foods before it gets rotten, or they will preserve those foods till we collect from them. </p>
+                </div>
+            </div>
+
+            <div class="col bg-dark">
+                @Html.ActionLink("GET STARTED", "Menu", new { }, new { @class = "btn btn-homepage btn-size" })
+
+            </div>
+        </div>
+    </div>*@
+    
+
+    @*<div class="container my-5 d-flex flex-row justify-content-center justify-content-evenly align-content-center">
+            <div>
+                <img src="~/Resources/homepage.jpg" alt="Image description" class="img-fluid w-75 h-75">
+                <p class="lead">a system that will help us to automate and track our works. We are an NGO who works for feeding deprived people and children. We have observed that, people are wasting a ton of food every day in Dhaka city (like office programs, buffets etc etc). We are on a mission to make the usage of this foods. We have contacted with some restaurants, and they agreed to give us those foods before it gets rotten, or they will preserve those foods till we collect from them. </p>
+            </div>
+            <div>
+                @Html.ActionLink("GET STARTED", "Menu", new {}, new { @class = "btn btn-homepage btn-size" })
+            </div>
+        </div>*@
+
+
+</body>
+</html>

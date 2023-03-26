@@ -1,0 +1,99 @@
+﻿@model IEnumerable<ZeroHunger.EF.Models.Request>
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@if (TempData["msg"] != null)
+{
+    <label class="alert alert-success">@TempData["msg"]</label>
+}
+
+
+<section class="p-3">
+    <div class="container">
+        <table class="table table-striped container p-3">
+            <h2>Dashboard</h2>
+
+            <thead class="bg-primary">
+                <tr>
+                    <th>
+                        Request PLaced
+                    </th>
+                    <th>
+                        Expire In
+                    </th>
+                    <th>
+                        Request Status
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestPlacedTime)
+                    </td>
+                    <td>
+                        @{
+
+                            DateTime expiredTime = new DateTime(item.RequestExpiredTime.Ticks);
+                            TimeSpan timeLeft = expiredTime - DateTime.UtcNow;
+
+                            string timeLeftString = string.Format("{0}d {1}h {2}m", timeLeft.Days, timeLeft.Hours, timeLeft.Minutes);
+
+                            if (DateTime.UtcNow > item.RequestExpiredTime)
+                            {
+                                <label>@item.RequestExpiredTime</label>
+                            }
+
+                            else
+                            { <label>@timeLeftString</label>}
+                        }
+                    </td>
+                    <td>
+                        @{
+                            if (item.Requeststatus == 0 && DateTime.UtcNow < item.RequestExpiredTime)
+                            {
+                                { <span class="badge badge-success bg-warning">Pending</span> }
+
+                            }
+
+                            else if (DateTime.UtcNow > item.RequestExpiredTime)
+                            { <span class="badge badge-success bg-danger">Expired</span> }
+
+                            else if (item.Requeststatus == 1)
+                            { <span class="badge badge-success bg-secondary">Processing</span> }
+
+                            else if (item.Requeststatus == 2)
+                            { <span class="badge badge-success bg-secondary">Colected</span> }
+
+                            else if (item.Requeststatus == 3)
+                            { <span class="badge badge-success bg-success">Completed</span> }
+
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.Requeststatus != 0)
+                        {
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+
+                        }
+
+                        else if (DateTime.UtcNow < item.RequestExpiredTime)
+                        {
+                            @Html.ActionLink("Process", "AssignEmployee", new { id = item.Id },
+                                new { @class = "btn btn-danger" })
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</section>

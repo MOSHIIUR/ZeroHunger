@@ -1,0 +1,63 @@
+﻿@model IEnumerable<ZeroHunger.Models.ReceiveRequest>
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+
+<section class="p-3">
+    <div class="container">
+        <div class="h1 text-center">
+            Available Distribution
+        </div>
+        <table class="table table-striped">
+            <thead class="bg-success">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ReceiveLocation)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequestPlacedTime)
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceiveLocation)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestPlacedTime)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Complete Request", "CompleteDistribution", new { id = item.ReceiveRequestId }, new { @class = "btn btn-primary" })
+                    </td>
+
+
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+
+</section>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('input[type=radio][name=Receiver]').change(function () {
+            $("#Next").show();
+            //var val = $('input[type=radio][name=Receiver]:checked').val();
+            //$("#Next").text(val);
+
+        });
+    });
+</script>

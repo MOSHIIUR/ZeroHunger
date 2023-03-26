@@ -1,0 +1,65 @@
+﻿@model ZeroHunger.EF.Models.User
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@if (TempData["msg"] != null)
+{
+    <label class="alert alert-success">@TempData["msg"]</label>
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <section class="container P-3">
+        <div class="d-flex flex-row justify-content-center justify-content-evenly align-items-center">
+            <div><img src="~/Resources/menu.png" alt="Alternate Text" /></div>
+            <div class="form-horizontal">
+                <h2>Register to Request Food</h2>
+
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Register" class="btn btn-homepage my-3" />
+                    </div>
+                    <div>Already Have an Account? <a href="@Url.Action("Login", "Home")">Login</a></div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+}
+
+

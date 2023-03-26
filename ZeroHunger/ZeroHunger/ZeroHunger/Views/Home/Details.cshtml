@@ -1,0 +1,108 @@
+﻿@model IEnumerable<ZeroHunger.Models.Detail>
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="p-3">
+    <div class="container">
+        <h2>Details</h2>
+
+        <p>
+            @Html.ActionLink("Dashboard", "Dashboard", new { }, new { @class = "btn btn-primary" })
+        </p>
+        <table class="table table-striped">
+            <thead class="bg-success">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestaurantName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestaurantAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequestPlacedTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequestExpiredTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequestOTP)
+                    </th>
+
+                    <th></th>
+                </tr>
+
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RestaurantName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RestaurantAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestPlacedTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestExpiredTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestOTP)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+        <table class="table table-striped">
+            <thead class="bg-success">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AssignedEmployee)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ReceivedPlace)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ReceivedTime)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CollectedTime)
+                    </th>
+                    <th></th>
+                </tr>
+
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssignedEmployee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceivedPlace)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceivedTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CollectedTime)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</section>

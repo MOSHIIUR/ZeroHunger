@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ZeroHunger.Models.EmployeeAvailable>
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<div class="container h1 text-center">
+    Assign Volunteer
+
+</div>
+
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped container p-3">
+        <thead class="bg bg-success">
+            <tr>
+
+                <th>
+                    Available Employee
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeName)
+                </td>
+                <td>
+                    @Html.ActionLink("Next", "AssignEmp", new { id = item.EmployeeId }, new { @class = "btn btn-primary" })
+                </td>
+
+            </tr>
+
+
+        }
+
+    </table>
+
+
+
+}
+
+else
+{
+    <div class="container text-center">
+        <h1 class="text-warning">Waiting For Volunteer To Available!!!</h1>
+    </div>
+}
+
+<div class="container my-md-3 text-center">
+    <a href="/Request/Dashboard" class="btn btn-primary btn-lg">Back to Dashboard</a>
+</div>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('input[type=radio][name=Employee]').change(function () {
+            $("#Next").show();
+            //var val = $('input[type=radio][name=Employee]:checked').val();
+            //$("#Next").text(val);
+
+        });
+    });
+</script>
+
+
+
+

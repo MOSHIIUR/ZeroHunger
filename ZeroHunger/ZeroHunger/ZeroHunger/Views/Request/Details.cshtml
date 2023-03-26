@@ -1,0 +1,117 @@
+﻿@model IEnumerable<ZeroHunger.Models.Detail>
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="p-3">
+    <div class="container">
+        <h2>Details</h2>
+
+        <p>
+            @Html.ActionLink("Dashboard", "Dashboard", new { }, new { @class = "btn btn-primary" })
+        </p>
+        <table class="table table-striped">
+            <thead class="bg-warning">
+                <tr>
+                    <th>
+                        #Order
+                    </th>
+                    <th>
+                        Restaurent Name
+                    </th>
+                    <th>
+                        Pickup Point
+                    </th>
+                    <th>
+                        Requested At
+                    </th>
+                    <th>
+                        Expired At
+                    </th>
+                    <th>
+                        Restaurent OTP
+                    </th>
+                    <th>
+                        Collected Time
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RestaurantName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RestaurantAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestPlacedTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestExpiredTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestOTP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CollectedTime)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+        <table class="table table-striped">
+            <thead class="bg-primary">
+                <tr>
+
+                    <th>
+                        Assigned To
+                    </th>
+                    <th>
+                        Distributed At
+                    </th>
+                    <th>
+                        Receiver OTP
+                    </th>
+                    <th>
+                        Distributed Time
+                    </th>
+
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssignedEmployee)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceivedPlace)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceiverOTP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceivedTime)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</section>

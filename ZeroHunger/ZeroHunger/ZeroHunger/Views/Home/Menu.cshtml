@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Menu</title>
+</head>
+<body>
+    <section class="p-5">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="~/Resources/Donate.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Donate</h5>
+                            <p class="card-text">
+                                If you are a business with a surplus of food or an organization that wants to Donate food, get started to get involved​.
+
+                            </p>
+                            <a href="/Home/Registration" class="btn btn-primary">DONATE FOOD</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="~/Resources/Receive.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Receive</h5>
+                            <p class="card-text">
+                                If you are a business or an organization that wants to receive food, get started to get involved​.
+
+                            </p>
+                            <a href="@Url.Action("Register", "Distribute")" class="btn btn-primary">RECEIVE FOOD</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="~/Resources/help.png" alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">Rescue</h5>
+                            <p class="card-text">Using our web-based app, we engage volunteers to transfer fresh food surpluses from local businesses to social service agencies serving the food insecure.</p>
+                            <a href="@Url.Action("AddEmployee", "Admin")" class="btn btn-primary">BECOME A VOLUNTEER</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

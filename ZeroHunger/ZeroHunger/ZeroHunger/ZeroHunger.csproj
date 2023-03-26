@@ -1,0 +1,592 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B72C4BD-5F16-4C23-9E0C-12E9CFD53389}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZeroHunger</RootNamespace>
+    <AssemblyName>ZeroHunger</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44320</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Auth\AdminAccess.cs" />
+    <Compile Include="Auth\ReceiverAccess.cs" />
+    <Compile Include="Auth\EmployeeAccess.cs" />
+    <Compile Include="Auth\RestaurentAccess.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\DistributeController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReceiveRequestController.cs" />
+    <Compile Include="Controllers\RequestController.cs" />
+    <Compile Include="CustomValidation\ExpireTime.cs" />
+    <Compile Include="EF\dBCC.cs" />
+    <Compile Include="EF\Models\Distribute.cs" />
+    <Compile Include="EF\Models\Employee.cs" />
+    <Compile Include="EF\Models\Receive.cs" />
+    <Compile Include="EF\Models\UserLogin.cs" />
+    <Compile Include="EF\Models\Request.cs" />
+    <Compile Include="EF\Models\Restaurent.cs" />
+    <Compile Include="EF\Models\User.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303181401201_user-table-created.cs" />
+    <Compile Include="Migrations\202303181401201_user-table-created.designer.cs">
+      <DependentUpon>202303181401201_user-table-created.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303181419524_user-table-PK-added.cs" />
+    <Compile Include="Migrations\202303181419524_user-table-PK-added.designer.cs">
+      <DependentUpon>202303181419524_user-table-PK-added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303181430094_user-table-PK-type-updated.cs" />
+    <Compile Include="Migrations\202303181430094_user-table-PK-type-updated.designer.cs">
+      <DependentUpon>202303181430094_user-table-PK-type-updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303181549000_user-table-PK-changedTo-Username.cs" />
+    <Compile Include="Migrations\202303181549000_user-table-PK-changedTo-Username.designer.cs">
+      <DependentUpon>202303181549000_user-table-PK-changedTo-Username.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303182016276_restaurent-table-created.cs" />
+    <Compile Include="Migrations\202303182016276_restaurent-table-created.designer.cs">
+      <DependentUpon>202303182016276_restaurent-table-created.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191012185_Request-table-columns-reduced.cs" />
+    <Compile Include="Migrations\202303191012185_Request-table-columns-reduced.designer.cs">
+      <DependentUpon>202303191012185_Request-table-columns-reduced.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191035000_Request-table-created.cs" />
+    <Compile Include="Migrations\202303191035000_Request-table-created.designer.cs">
+      <DependentUpon>202303191035000_Request-table-created.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191305229_one-many-Restaurent-Request-linked.cs" />
+    <Compile Include="Migrations\202303191305229_one-many-Restaurent-Request-linked.designer.cs">
+      <DependentUpon>202303191305229_one-many-Restaurent-Request-linked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191502388_Request-table-RENEWED.cs" />
+    <Compile Include="Migrations\202303191502388_Request-table-RENEWED.designer.cs">
+      <DependentUpon>202303191502388_Request-table-RENEWED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191505082_Request-table-FK-ADDED.cs" />
+    <Compile Include="Migrations\202303191505082_Request-table-FK-ADDED.designer.cs">
+      <DependentUpon>202303191505082_Request-table-FK-ADDED.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191554094_Employee-table-created.cs" />
+    <Compile Include="Migrations\202303191554094_Employee-table-created.designer.cs">
+      <DependentUpon>202303191554094_Employee-table-created.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191555528_Employee-table-modified.cs" />
+    <Compile Include="Migrations\202303191555528_Employee-table-modified.designer.cs">
+      <DependentUpon>202303191555528_Employee-table-modified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191600200_Employee&amp;Request-table-relation-implemented.cs" />
+    <Compile Include="Migrations\202303191600200_Employee&amp;Request-table-relation-implemented.designer.cs">
+      <DependentUpon>202303191600200_Employee&amp;Request-table-relation-implemented.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191643321_Employee_PK_NAme-Updated.cs" />
+    <Compile Include="Migrations\202303191643321_Employee_PK_NAme-Updated.designer.cs">
+      <DependentUpon>202303191643321_Employee_PK_NAme-Updated.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191814319_Distribute-Table-Added&amp;Relation-linked.cs" />
+    <Compile Include="Migrations\202303191814319_Distribute-Table-Added&amp;Relation-linked.designer.cs">
+      <DependentUpon>202303191814319_Distribute-Table-Added&amp;Relation-linked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191837138_Distribute-table-modified.cs" />
+    <Compile Include="Migrations\202303191837138_Distribute-table-modified.designer.cs">
+      <DependentUpon>202303191837138_Distribute-table-modified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303191845010_Distribute-Request-employee-table-relatoin-established.cs" />
+    <Compile Include="Migrations\202303191845010_Distribute-Request-employee-table-relatoin-established.designer.cs">
+      <DependentUpon>202303191845010_Distribute-Request-employee-table-relatoin-established.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303192053315_Distribute-Request-employee-table-relatoin-modified.cs" />
+    <Compile Include="Migrations\202303192053315_Distribute-Request-employee-table-relatoin-modified.designer.cs">
+      <DependentUpon>202303192053315_Distribute-Request-employee-table-relatoin-modified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303192114064_Distribute-table-email&amp;pass-column-modified.cs" />
+    <Compile Include="Migrations\202303192114064_Distribute-table-email&amp;pass-column-modified.designer.cs">
+      <DependentUpon>202303192114064_Distribute-table-email&amp;pass-column-modified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303192117443_Distribute-table-requestTime-column-added.cs" />
+    <Compile Include="Migrations\202303192117443_Distribute-table-requestTime-column-added.designer.cs">
+      <DependentUpon>202303192117443_Distribute-table-requestTime-column-added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303192126511_Distribute-table-column-reduced.cs" />
+    <Compile Include="Migrations\202303192126511_Distribute-table-column-reduced.designer.cs">
+      <DependentUpon>202303192126511_Distribute-table-column-reduced.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303192130562_user-table-column-modified.cs" />
+    <Compile Include="Migrations\202303192130562_user-table-column-modified.designer.cs">
+      <DependentUpon>202303192130562_user-table-column-modified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303192138378_user-table-column-modifiedv2.0.cs" />
+    <Compile Include="Migrations\202303192138378_user-table-column-modifiedv2.0.designer.cs">
+      <DependentUpon>202303192138378_user-table-column-modifiedv2.0.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303192155210_user-distribute-relation-established.cs" />
+    <Compile Include="Migrations\202303192155210_user-distribute-relation-established.designer.cs">
+      <DependentUpon>202303192155210_user-distribute-relation-established.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303201512439_UserLogin-table-created.cs" />
+    <Compile Include="Migrations\202303201512439_UserLogin-table-created.designer.cs">
+      <DependentUpon>202303201512439_UserLogin-table-created.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303201549276_User-Table-primary-key-changed.cs" />
+    <Compile Include="Migrations\202303201549276_User-Table-primary-key-changed.designer.cs">
+      <DependentUpon>202303201549276_User-Table-primary-key-changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303201625570_Rquest-table-expired-time-Type-changed-to-DateTime.cs" />
+    <Compile Include="Migrations\202303201625570_Rquest-table-expired-time-Type-changed-to-DateTime.designer.cs">
+      <DependentUpon>202303201625570_Rquest-table-expired-time-Type-changed-to-DateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303202004415_Table-nameing-more-specified.cs" />
+    <Compile Include="Migrations\202303202004415_Table-nameing-more-specified.designer.cs">
+      <DependentUpon>202303202004415_Table-nameing-more-specified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303202044154_distribute-foreign-key-name-changed.cs" />
+    <Compile Include="Migrations\202303202044154_distribute-foreign-key-name-changed.designer.cs">
+      <DependentUpon>202303202044154_distribute-foreign-key-name-changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303202228190_distribute-recieved-time-is-nullable.cs" />
+    <Compile Include="Migrations\202303202228190_distribute-recieved-time-is-nullable.designer.cs">
+      <DependentUpon>202303202228190_distribute-recieved-time-is-nullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303210634571_distribute-pk-not-null.cs" />
+    <Compile Include="Migrations\202303210634571_distribute-pk-not-null.designer.cs">
+      <DependentUpon>202303210634571_distribute-pk-not-null.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303210636531_distribute-pk-name-changed.cs" />
+    <Compile Include="Migrations\202303210636531_distribute-pk-name-changed.designer.cs">
+      <DependentUpon>202303210636531_distribute-pk-name-changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303210709546_FoodReceiveRequest-Table-created.cs" />
+    <Compile Include="Migrations\202303210709546_FoodReceiveRequest-Table-created.designer.cs">
+      <DependentUpon>202303210709546_FoodReceiveRequest-Table-created.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303210715203_Request-table-simplified.cs" />
+    <Compile Include="Migrations\202303210715203_Request-table-simplified.designer.cs">
+      <DependentUpon>202303210715203_Request-table-simplified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303210735015_Distribute-table-newly-created.cs" />
+    <Compile Include="Migrations\202303210735015_Distribute-table-newly-created.designer.cs">
+      <DependentUpon>202303210735015_Distribute-table-newly-created.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211115146_OTP-shift-from-request-receive-to-distribute.cs" />
+    <Compile Include="Migrations\202303211115146_OTP-shift-from-request-receive-to-distribute.designer.cs">
+      <DependentUpon>202303211115146_OTP-shift-from-request-receive-to-distribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211330021_distribute-table-employee-fk-removed.cs" />
+    <Compile Include="Migrations\202303211330021_distribute-table-employee-fk-removed.designer.cs">
+      <DependentUpon>202303211330021_distribute-table-employee-fk-removed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211332362_distribute-table-employee-fk-added.cs" />
+    <Compile Include="Migrations\202303211332362_distribute-table-employee-fk-added.designer.cs">
+      <DependentUpon>202303211332362_distribute-table-employee-fk-added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303211339360_distribute-table-employee-pk-name-changed.cs" />
+    <Compile Include="Migrations\202303211339360_distribute-table-employee-pk-name-changed.designer.cs">
+      <DependentUpon>202303211339360_distribute-table-employee-pk-name-changed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202303220339304_new-one.cs" />
+    <Compile Include="Migrations\202303220339304_new-one.designer.cs">
+      <DependentUpon>202303220339304_new-one.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Detail.cs" />
+    <Compile Include="Models\EmployeeDashboard.cs" />
+    <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\EmployeeAvailable.cs" />
+    <Compile Include="Models\ReceiveRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-grid.rtl.css" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\bootstrap-utilities.css" />
+    <Content Include="Content\bootstrap-utilities.min.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.rtl.css" />
+    <Content Include="Content\bootstrap.rtl.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.esm.js" />
+    <Content Include="Scripts\bootstrap.esm.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.esm.min.js.map" />
+    <Content Include="Scripts\bootstrap.esm.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\bootstrap.rtl.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\bootstrap-utilities.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Home\Registration.cshtml" />
+    <Content Include="Views\Home\Homepage.cshtml" />
+    <Content Include="Views\Home\MakeRequest.cshtml" />
+    <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Admin\AddEmployee.cshtml" />
+    <Content Include="Views\Request\Dashboard.cshtml" />
+    <Content Include="Views\Request\AssignEmployee.cshtml" />
+    <Content Include="Views\Distribute\Register.cshtml" />
+    <Content Include="Views\Distribute\Homepage.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Employee\Homepage.cshtml" />
+    <Content Include="Views\Admin\Homepage.cshtml" />
+    <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Distribute\RecievedFood.cshtml" />
+    <Content Include="Views\ReceiveRequest\MakeReceiveRequest.cshtml" />
+    <Content Include="Views\ReceiveRequest\Dashboard.cshtml" />
+    <Content Include="Views\Request\Distribute.cshtml" />
+    <Content Include="Views\Employee\Dashboard.cshtml" />
+    <Content Include="Views\Employee\ManageTask.cshtml" />
+    <Content Include="Views\Request\Details.cshtml" />
+    <Content Include="Views\ReceiveRequest\Details.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\Home\Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202303181401201_user-table-created.resx">
+      <DependentUpon>202303181401201_user-table-created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303181419524_user-table-PK-added.resx">
+      <DependentUpon>202303181419524_user-table-PK-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303181430094_user-table-PK-type-updated.resx">
+      <DependentUpon>202303181430094_user-table-PK-type-updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303181549000_user-table-PK-changedTo-Username.resx">
+      <DependentUpon>202303181549000_user-table-PK-changedTo-Username.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303182016276_restaurent-table-created.resx">
+      <DependentUpon>202303182016276_restaurent-table-created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191012185_Request-table-columns-reduced.resx">
+      <DependentUpon>202303191012185_Request-table-columns-reduced.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191035000_Request-table-created.resx">
+      <DependentUpon>202303191035000_Request-table-created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191305229_one-many-Restaurent-Request-linked.resx">
+      <DependentUpon>202303191305229_one-many-Restaurent-Request-linked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191502388_Request-table-RENEWED.resx">
+      <DependentUpon>202303191502388_Request-table-RENEWED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191505082_Request-table-FK-ADDED.resx">
+      <DependentUpon>202303191505082_Request-table-FK-ADDED.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191554094_Employee-table-created.resx">
+      <DependentUpon>202303191554094_Employee-table-created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191555528_Employee-table-modified.resx">
+      <DependentUpon>202303191555528_Employee-table-modified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191600200_Employee&amp;Request-table-relation-implemented.resx">
+      <DependentUpon>202303191600200_Employee&amp;Request-table-relation-implemented.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191643321_Employee_PK_NAme-Updated.resx">
+      <DependentUpon>202303191643321_Employee_PK_NAme-Updated.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191814319_Distribute-Table-Added&amp;Relation-linked.resx">
+      <DependentUpon>202303191814319_Distribute-Table-Added&amp;Relation-linked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191837138_Distribute-table-modified.resx">
+      <DependentUpon>202303191837138_Distribute-table-modified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303191845010_Distribute-Request-employee-table-relatoin-established.resx">
+      <DependentUpon>202303191845010_Distribute-Request-employee-table-relatoin-established.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303192053315_Distribute-Request-employee-table-relatoin-modified.resx">
+      <DependentUpon>202303192053315_Distribute-Request-employee-table-relatoin-modified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303192114064_Distribute-table-email&amp;pass-column-modified.resx">
+      <DependentUpon>202303192114064_Distribute-table-email&amp;pass-column-modified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303192117443_Distribute-table-requestTime-column-added.resx">
+      <DependentUpon>202303192117443_Distribute-table-requestTime-column-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303192126511_Distribute-table-column-reduced.resx">
+      <DependentUpon>202303192126511_Distribute-table-column-reduced.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303192130562_user-table-column-modified.resx">
+      <DependentUpon>202303192130562_user-table-column-modified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303192138378_user-table-column-modifiedv2.0.resx">
+      <DependentUpon>202303192138378_user-table-column-modifiedv2.0.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303192155210_user-distribute-relation-established.resx">
+      <DependentUpon>202303192155210_user-distribute-relation-established.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303201512439_UserLogin-table-created.resx">
+      <DependentUpon>202303201512439_UserLogin-table-created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303201549276_User-Table-primary-key-changed.resx">
+      <DependentUpon>202303201549276_User-Table-primary-key-changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303201625570_Rquest-table-expired-time-Type-changed-to-DateTime.resx">
+      <DependentUpon>202303201625570_Rquest-table-expired-time-Type-changed-to-DateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303202004415_Table-nameing-more-specified.resx">
+      <DependentUpon>202303202004415_Table-nameing-more-specified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303202044154_distribute-foreign-key-name-changed.resx">
+      <DependentUpon>202303202044154_distribute-foreign-key-name-changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303202228190_distribute-recieved-time-is-nullable.resx">
+      <DependentUpon>202303202228190_distribute-recieved-time-is-nullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303210634571_distribute-pk-not-null.resx">
+      <DependentUpon>202303210634571_distribute-pk-not-null.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303210636531_distribute-pk-name-changed.resx">
+      <DependentUpon>202303210636531_distribute-pk-name-changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303210709546_FoodReceiveRequest-Table-created.resx">
+      <DependentUpon>202303210709546_FoodReceiveRequest-Table-created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303210715203_Request-table-simplified.resx">
+      <DependentUpon>202303210715203_Request-table-simplified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303210735015_Distribute-table-newly-created.resx">
+      <DependentUpon>202303210735015_Distribute-table-newly-created.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211115146_OTP-shift-from-request-receive-to-distribute.resx">
+      <DependentUpon>202303211115146_OTP-shift-from-request-receive-to-distribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211330021_distribute-table-employee-fk-removed.resx">
+      <DependentUpon>202303211330021_distribute-table-employee-fk-removed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211332362_distribute-table-employee-fk-added.resx">
+      <DependentUpon>202303211332362_distribute-table-employee-fk-added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303211339360_distribute-table-employee-pk-name-changed.resx">
+      <DependentUpon>202303211339360_distribute-table-employee-pk-name-changed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202303220339304_new-one.resx">
+      <DependentUpon>202303220339304_new-one.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50671</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44320/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

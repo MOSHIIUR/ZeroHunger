@@ -1,0 +1,110 @@
+﻿@model IEnumerable<ZeroHunger.Models.Detail>
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<section class="p-3">
+    <div class="container">
+        <h2>Details</h2>
+
+
+        <table class="table table-striped">
+            <thead class="bg-primary">
+                <tr>
+                    <th>
+                        #Order Request
+                    </th>
+                    <th>
+                        Request At
+                    </th>
+                    <th>
+                        OTP
+                    </th>
+                    <th>
+                        Request Location
+                    </th>
+                    <th></th>
+                </tr>
+
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceiverID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestPlacedTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceiverOTP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceivedPlace)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+
+        <table class="table table-striped">
+            <thead class="bg-primary">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrderId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestaurantName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RestaurantAddress)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.RequestExpiredTime)
+                    </th>
+                    <th>
+                        Received Time
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AssignedEmployee)
+                    </th>
+
+
+                    <th></th>
+                </tr>
+
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RestaurantName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RestaurantAddress)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RequestExpiredTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceivedTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AssignedEmployee)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</section>

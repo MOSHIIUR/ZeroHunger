@@ -1,0 +1,136 @@
+﻿@model IEnumerable<ZeroHunger.Models.Detail>
+
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<section class="p-3">
+    <div class="container">
+        <h2>ManageTask</h2>
+        <a href="@Url.Action("Dashboard", "Employee")" class="btn btn-warning">Go Back</a>
+
+    </div>
+</section>
+
+@if (TempData["msg"] != null)
+{
+    <label class="alert alert-warning">@TempData["msg"]</label>
+}
+
+
+<section class="p-3">
+    <div class="container">
+        <table class="table table-striped">
+            <thead class="bg-success">
+                <tr>
+
+                    <th>
+                        Requested By
+                    </th>
+                    <th>
+                        Pickup Point
+                    </th>
+                    <th>
+                        Expired Time
+                    </th>
+                    <th>
+                        Confirm Collection
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RestaurantName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RestaurantAddress)
+                    </td>
+                    <td>
+                        @{
+                            if (item.ReceivedTime == null)
+                            {
+                                DateTime expiredTime = new DateTime(item.RequestExpiredTime.Ticks);
+                                TimeSpan timeLeft = expiredTime - DateTime.UtcNow;
+
+                                string timeLeftString = string.Format("{0}d {1}h {2}m", timeLeft.Days, timeLeft.Hours, timeLeft.Minutes);
+                                <label>@timeLeftString</label>
+                            }
+
+                            else
+                            {
+                                <label>@item.RequestExpiredTime</label>
+                            }
+
+                        }
+                    </td>
+                    <td>
+                        @if (item.CollectedTime == null)
+                        {
+                            using (Html.BeginForm("ConfirmSenderOTP", "Employee", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <input type="number" name="SenderOTP" placeholder="Enter OTP" />
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            }
+                        }
+
+                        else
+                        {
+                            <label>Distributed AT: @item.CollectedTime</label>
+                        }
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+
+        <table class="table table-striped">
+            <thead class="bg-warning">
+                <tr>
+                    <th>
+                        Distributed At
+                    </th>
+                    <th>
+                        Confirm Distribution
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReceivedPlace)
+                    </td>
+
+                    <td>
+                        @if (item.ReceivedTime == null)
+                        {
+                            using (Html.BeginForm("ConfirmReceiverOTP", "Employee", FormMethod.Post))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <input type="number" name="ReceiverOTP" placeholder="Enter OTP" />
+                                <button type="submit" class="btn btn-success">Submit</button>
+                            }
+                        }
+
+                        else
+                        {
+                            <label>Collected AT: @item.ReceivedTime</label>
+                        }
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</section>

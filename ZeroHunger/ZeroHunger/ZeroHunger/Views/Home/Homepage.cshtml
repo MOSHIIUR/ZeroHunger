@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Homepage";
+
+}
+
+<h2>Homepage</h2>
+<a href="@Url.Action("MakeRequest", "Home")" class="btn btn-primary"><i class="fas fa-plus"></i> Make Request</a>
+
+<form id="Make-Request">
+
+</form>
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+
+<script>
+    $("#Make-Request").submit(function (e) {
+        e.preventDefault();
+        alert("inside the query");
+    });
+</script>
+
+
+
+
+

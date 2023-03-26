@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Welcome to Zero Hunger</h2>
+
+<h2><a href="@Url.Action("Registration", "Home")" class="btn btn-primary">Donate Food</a></h2>
+
+<h2><a href="@Url.Action("Register", "Distribute")" class="btn btn-danger">Recieve Food</a></h2>

@@ -1,0 +1,66 @@
+﻿
+
+
+<html>
+<head>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <title>Zero Hunger</title>
+</head>
+
+<body class="p-0 vh-100 flex-column flex-grow-1">
+
+    <nav class="navbar navbar-expand-lg bg-navbar text-white">
+
+        <div class="container">
+            <a href="@Url.Action("Welcome", "Home")" class="navbar-brand"><img src="~/Resources/logo.png" alt="ZeroHunger" class="h-50 w-50"/></a>
+
+            <div class="collapse navbar-collapse text-light">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Login">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Home/Menu">Rescue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/Home/Logout" class="nav-link">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+            @*@if (Session["user"] == null)*@
+                    @*@if (Session.Keys.Count == 0)*@
+
+            
+                
+            
+        
+
+    </nav>
+
+    @* ---------------------------------------- navbar ends---------------------------------- *@
+
+
+    @RenderBody()
+
+    
+    @* --------------------------------------- footer ------------------------------------- *@
+    <footer class="p-5 bg-dark text-light py-3 bottom-0 position-relative fixed-width">
+        <div class="container text-center">
+                    <p class="lead">MOSHIIUR&copy; All Rights Reserved.</p>
+        </div>
+    </footer>
+
+
+
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>
